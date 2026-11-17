@@ -1,143 +1,31 @@
 # ProductDash
 
-**ProductDash** is a training admin panel for managing products, orders, and users.
-The project imitates a real dashboard with analytics, filters, data editing, and a responsive layout.
+Learning project: an admin panel for products, orders and users, built while studying React and TypeScript. There is no backend. The data lives in the browser (localforage), and the users are made-up examples.
 
-Built with a focus on **React** app architecture, type safety, and a clean UI.
+## Features
 
-## Description
+- Dashboard: key numbers, order statuses, sales by category, stock levels and recent activity
+- Products: filters by category, status and stock, editing and pagination
+- Orders: filter by status, change the status, pagination
+- Users: filters by role and status, sorting and profile editing
+- Layout works on phones, with its own navigation
 
-The project was created to practice typical frontend tasks:
-working with tables, application state, routing, and user interfaces.
+## Stack
 
-**No backend is used** data is stored locally. This lets you focus on the frontend,
-code structure, and component interaction.
+React 19 · TypeScript · Vite · React Router 7 · CSS Modules · localforage · ESLint
 
-## Key features
-
-### Dashboard
-
-- Cards with key metrics
-- Order statuses
-- Sales distribution by category
-- Inventory level
-- Recent activity
-
-### Products
-
-- Catalog browsing
-- Filtering by category, status, and stock
-- Product editing
-- Pagination
-
-### Orders
-
-- Orders list
-- Filtering by status
-- Updating order status
-- Pagination
-
-### Users
-
-- Users list
-- Filtering by role and status
-- Sorting
-- Profile editing
-
-### Interface
-
-- Fully responsive design
-- Responsive navigation
-- Unified style system
-
-## Technologies
-
-| Technology | Version |
-|-----------|---------|
-| **React** | 18 |
-| **TypeScript** | - |
-| **Vite** | - |
-| **React Router** | - |
-| **CSS Modules** | - |
-| **LocalForage** | - |
-| **ESLint** | - |
-
-## Installation and run
+## Run
 
 ```bash
-git clone https://github.com/yourusername/productdash.git
-cd productdash
 npm install
+npm run dev       # http://localhost:5173
+npm run build
 ```
 
-### Development mode
+## How it is built
 
-```bash
-npm run dev
-```
+Products, orders and users are shared through React Context and saved with localforage. Each section (dashboard, products, orders, users) has its own folder with its pages and components. Types for the data are in `src/data`.
 
-Open `http://localhost:5173` in your browser.
+## What I practiced
 
-## Architecture
-
-**Global state** is implemented via the **React Context API**.
-Data (products, orders, users) is stored in local storage using **LocalForage**.
-
-The project is split into functional modules without overloaded components.
-
-## Data types
-
-### Order
-
-```typescript
-interface Order {
-  id: string
-  productId: string
-  quantity: number
-  price: number
-  status: 'pending' | 'processing' | 'completed' | 'cancelled'
-  date: string
-  customer: string
-}
-```
-
-### Product
-
-```typescript
-interface Product {
-  id: string
-  name: string
-  type: string
-  stock: number
-  price: number
-  status: 'active' | 'inactive'
-  dateAdded: string
-}
-```
-
-### User
-
-```typescript
-interface User {
-  id: string
-  name: string
-  email: string
-  role: 'admin' | 'manager' | 'user'
-  status: 'active' | 'inactive'
-  dateAdded: string
-}
-```
-
-## Project goals
-
-- Practice building admin panels
-- **React** application architecture
-- State management and routing
-- Type safety with **TypeScript**
-- Encapsulated styles and a consistent UI
-
-## Contacts
-
-**GitHub**: https://github.com/Karataev-Daniil
-
-**Email**: dirings52445@gmail.com
+Tables with filters and pagination, shared state without a library, typed data models, routing with a common layout, and forms for editing records.
